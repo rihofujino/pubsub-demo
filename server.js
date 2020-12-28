@@ -10,9 +10,8 @@ app.use(express.static('public'));
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ noServer: true });
 
-const redisHost = '127.0.0.1:6379';
-const redis = new Redis(redisHost);
-const client = new Redis(redisHost);
+const redis = new Redis('redis'); //redis container
+const client = new Redis('redis');
 
 server.on('upgrade', function (request, socket, head) {
   wss.handleUpgrade(request, socket, head, function (ws) {
@@ -28,6 +27,7 @@ function subscribeMessage(channel) {
 }
 subscribeMessage('newMessage')
 
+// broadcast message to all clients
 function broadcast(message){
   wss.clients.forEach(function(client){
     client.send(JSON.stringify({
@@ -53,5 +53,5 @@ wss.on('connection', function (ws, request) {
 
 const port = 3000;
 server.listen(port, function () {
-  console.log(`Listening on http://localhost:${port}`);
+  console.log('Server start...');
 });

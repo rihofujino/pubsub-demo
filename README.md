@@ -1,7 +1,7 @@
 Simple demo of websocket + Redis Pub/Sub.
+
 ```
-npm install
+docker-compose up --build
 ```
-```
-npm run dev
-```
+
+Access [localhost:3000](http://localhost:3000/) and [localhost:3030](http://localhost:3030/).
