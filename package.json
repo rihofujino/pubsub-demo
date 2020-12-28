@@ -1,11 +1,18 @@
 {
-  "author": "",
-  "name": "express-session-parse",
+  "author": "rihofujino",
+  "name": "pubsub-demo",
   "version": "0.0.0",
-  "repository": "websockets/ws",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
   "dependencies": {
     "express": "^4.16.4",
     "express-session": "^1.16.1",
-    "uuid": "^3.3.2"
+    "ioredis": "^4.19.4",
+    "nodemon": "^2.0.6",
+    "uuid": "^3.3.2",
+    "ws": "^7.4.1"
   }
 }
